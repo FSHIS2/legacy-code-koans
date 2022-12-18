@@ -2,9 +2,9 @@ namespace LegacyCodeKoans.Unmockable
 {
     public class Service
     {
-        private readonly Dependency dependency;
+        private readonly IDependency dependency;
 
-        public Service(Dependency dependency)
+        public Service(IDependency dependency)
         {
             this.dependency = dependency;
         }
