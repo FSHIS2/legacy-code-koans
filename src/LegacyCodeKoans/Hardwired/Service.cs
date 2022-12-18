@@ -2,11 +2,11 @@ namespace LegacyCodeKoans.Hardwired
 {
     public class Service
     {
-        private readonly Dependency dependency;
+        private readonly IDependency dependency;
 
-        public Service()
+        public Service(IDependency dependency)
         {
-            dependency = new Dependency();
+            this.dependency = dependency;
         }
 
         public void DoSomething()

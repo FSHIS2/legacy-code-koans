@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Xunit;
 
 namespace LegacyCodeKoans.Hardwired
@@ -7,8 +8,13 @@ namespace LegacyCodeKoans.Hardwired
         [Fact]
         public void DoSomething()
         {
-            var service = new Service();
+            var dependencyMock = new DependencyMock();
+            var service = new Service(dependencyMock);
+
             service.DoSomething();
+
+            var result = dependencyMock.HasOccurredSomeSideEffect;
+            result.Should().BeTrue();
 
             // TODO: Assert Dependency.SomeSideEffect() method was called
         }
